@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Complete Me</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1 class="friendly-forecast"><span id="f">f</span><span id="r">r</span><span id="i">i</span><span id="e">e</span><span id="n">n</span><span id="d">d</span><span id="l">l</span><span id="y">y</span></h1>
+        <h1 class="friendly-forecast"><span id="f2">f</span><span id="o">o</span><span id="r2">r</span><span id="e2">e</span><span id="c">c</span><span id="a">a</span><span id="s">s</span><span id="t">t</span></h1>
+      </div>
+      <nav>
+        <a class="nav-links" href="#">Maps & Radar</a>
+        <a class="nav-links" href="#">Severe Weather</a>
+        <a class="nav-links" href="#">News & Blogs</a>
+        <a class="nav-links" href="#">Photos & Video</a>
+        <a class="nav-links"  id="activities" href="#">Activities</a>
+      </nav>
+      <form class="location-search">
+        <input class="search-input" type="text" name="search locations" placeholder="Search Words">
+        <button id="map-icon" type="button" name="button"></button>
+      </form>
+    </header>
+    <main>
+      <h2 class="current-city">Denver, CO</h2>
+    </main>
+    <div class="current-weather">
+      <article class="weather-icon">
+        <img src="/Users/christielynam/turing/mod2/projects/complete-me/assets/sun.svg" alt="sun">
+      </article>
+      <article class="current-temp">
+        <h3 class="temp">82<span>&#8457;</span></h3>
+        <p class="feels-like">Feels like 84<span>&#8457;</span></p>
+      </article>
+      <article class="today">
+        <div class="hi-low">
+          <h4 class="hi-low" id="hi">93<span>&#176;</span></h4>
+          <span id="pipe">|</span>
+          <h4 class="hi-low" id="low"> 63<span>&#176;</span></h4>
+        </div>
+        <div class="dew-point">
+          <img class="dew-drop" src="/Users/christielynam/turing/mod2/projects/complete-me/assets/drop.svg" alt="dew drop">
+          <h4 class="dew-percent">20%</h4>
+        </div>
+      </article>
+      <button class="full-forecast-btn" type="button" name="button">Full Forecast</button>
+    </div>
+    <footer class="quote">"Be kind whenever possible. It is always possible." ~<em>Dalai Lama</em></footer>
+
+  </body>
+</html>

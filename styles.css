@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin : 0;
+  padding: 0;
+  background-color: #1E2023;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+  display: flex;
+  border-bottom: 2px solid #363636;
+}
+
+.logo {
+  margin: 25px;
+  padding-right: 25px;
+  border-right: 2px solid #363636;
+}
+
+.friendly-forecast {
+  margin: 0;
+  font-size: 3em;
+}
+
+#f {
+  color: red;
+}
+#r {
+  color: orange;
+}
+#i {
+  color: yellow;
+}
+#e {
+  color: green;
+}
+#n {
+  color: blue;
+}
+#d {
+  color: indigo;
+}
+#l {
+  color: violet;
+}
+#y {
+  color: red;
+}
+
+#f2 {
+  color: violet;
+}
+#o {
+  color: indigo;
+}
+#r2 {
+  color: blue;
+}
+#e2 {
+  color: green;
+}
+#c {
+  color: yellow;
+}
+#a {
+  color: orange;
+}
+#s {
+  color: red;
+}
+#t {
+  color: violet;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  padding: 10px;
+  border-right: 2px solid #363636;
+  color: #C7C8C9;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+#activities {
+  border-right: none;
+}
+
+.location-search {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.search-input {
+  height: 50px;
+  width: 300px;
+  padding-left: 10px;
+  border: 2px solid #1291BB;
+  border-right: 1px solid #1291BB;
+  font-size: 1.2em;
+}
+
+::placeholder {
+  color: #1291BB;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border: 2px solid #1291BB;
+  border-left: 1px solid #1291BB;
+}
+
+#map-icon {
+  background-image: url('/Users/christielynam/turing/mod2/projects/complete-me/assets/map.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+  cursor: pointer;
+}
+
+.current-city {
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.current-weather {
+  display: flex;
+  justify-content: space-around;
+}
+
+.weather-icon {
+  width: 150px;
+  margin: 50px;
+}
+
+.current-temp {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+  margin-bottom: 0;
+  color: #FE9A3B;
+  font-size: 4.5em;
+}
+
+.feels-like {
+  color: #fff;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.today {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hi-low {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+#hi {
+  padding-right: 10px;
+  color: #fff;
+}
+
+#pipe {
+  margin-top: 35px;
+  color: #fff;
+}
+
+#low {
+  padding-left: 10px;
+  color: #8A8A8A;
+}
+
+.dew-point {
+  display: flex;
+  align-items: center;
+}
+
+.dew-drop {
+  width: 30px;
+  margin-bottom: 30px;
+}
+
+.dew-percent {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.full-forecast-btn {
+  height: 50px;
+  width: 300px;
+  background-color: #1291BB;
+  color: #fff;
+  border: none;
+  font-family: inherit;
+  font-size: 1.2em;
+  align-self: center;
+  cursor: pointer;
+}
+
+.quote {
+  margin-top: 50px;
+  color: #C7C8C9;
+  font-size: 2em;
+  text-align: center;
+}
