@@ -1,8 +1,9 @@
 import { expect } from 'chai';
-import Trie from '../scripts/Trie'
-import Node from '../scripts/Node'
+import Trie from '../scripts/Trie';
+import Node from '../scripts/Node';
+const fs = require('fs');
 const text = "/usr/share/dict/words"
-const dictionary = fs.readFileSync(text).toString().trim().split('\n')
+// const dictionary = fs.readFileSync(text).toString().trim().split('\n')
 
 describe('Trie functionality', () => {
 
@@ -91,7 +92,7 @@ describe('Trie functionality', () => {
     })
   })
 
-  describe('Count' () => {
+  describe('Count', () => {
     let trie = new Trie();
 
     it('should return number of words inserted', () => {
@@ -109,6 +110,7 @@ describe('Trie functionality', () => {
       trie.insert('apples');
       expect(trie.count()).to.equal(4);
     })
+
 
     it('should return number of words inserted', () => {
       expect(trie.count()).to.equal(0);
