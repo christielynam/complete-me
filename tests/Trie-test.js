@@ -3,7 +3,7 @@ import Trie from '../scripts/Trie';
 import Node from '../scripts/Node';
 const fs = require('fs');
 const text = "/usr/share/dict/words"
-// const dictionary = fs.readFileSync(text).toString().trim().split('\n')
+const dictionary = fs.readFileSync(text).toString().trim().split('\n')
 
 describe('Trie functionality', () => {
 
@@ -14,7 +14,7 @@ describe('Trie functionality', () => {
       trie = new Trie();
     })
 
-    it('should have a root', () => {
+    it('should have a root node defaulted to null', () => {
       expect(trie.root).to.equal(null);
     })
 
@@ -39,6 +39,7 @@ describe('Trie functionality', () => {
     })
 
     it('should be able to insert a word and the last letter should have a isWord property of true', () => {
+      trie.insert('app');
       trie.insert('apple');
 
       expect(
@@ -50,6 +51,14 @@ describe('Trie functionality', () => {
         .children.e
         .letter
       ).to.equal('e')
+
+      expect(
+        trie.root
+        .children.a
+        .children.p
+        .children.p
+        .isWord
+      ).to.equal(true)
 
       expect(
         trie.root
@@ -93,7 +102,11 @@ describe('Trie functionality', () => {
   })
 
   describe('Count', () => {
-    let trie = new Trie();
+    let trie;
+
+    beforeEach(function() {
+      trie = new Trie();
+    })
 
     it('should return number of words inserted', () => {
       expect(trie.count()).to.equal(0);
