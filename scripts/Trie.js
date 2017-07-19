@@ -18,6 +18,7 @@ export default class Trie {
     let currentNode = this.root;
 
     letters.forEach(letter => {
+
       if (!currentNode.children[letter]) {
         currentNode.children[letter] = new Node(letter);
       }
@@ -25,7 +26,6 @@ export default class Trie {
     })
       if (!currentNode.isWord) {
         currentNode.isWord = true;
-        // this.value = word;
         this.wordCount++;
       }
   }
@@ -35,17 +35,41 @@ export default class Trie {
   }
 
   suggest(word) {
+    let wordsArray = [...word];
     let currentNode = this.root;
-    let letters = [...word.toLowerCase()];
     let suggestions = [];
-    letters.forEach(letter => {
-      currentNode = currentNode.children[letter]
-      console.log(currentNode);
-    })
-    if (currentNode.isWord) {
-      suggestions.push(currentNode.value)
+
+    for (let i = 0; i < wordsArray.length; i++) {
+      currentNode = currentNode.children[wordsArray[i]];
+    }
+
+    //currentNode now refers to the last letter in our word
+
+    const traverseTheTrie = (word, currentNode) => {
+      const keys = Object.keys(currentNode.children);
+
+      for (let k = 0; k < keys.length; k++) {
+        const child = currentNode.children[keys[k]];
+        const newString = word + child.letter;
+        if (child.isWord) {
+          suggestions.push(newString);
+        }
+        traverseTheTrie(newString, child);
+      }
+    }
+    if (currentNode && currentNode.isWord) {
+      suggestions.push(word);
+    }
+    if (currentNode) {
+      traverseTheTrie(word, currentNode);
     }
     return suggestions;
+  }
+
+  populate(dictionary) {
+    dictionary.forEach(word => {
+      this.insert(word);
+    })
   }
 
 

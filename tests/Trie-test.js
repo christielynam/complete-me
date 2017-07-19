@@ -141,20 +141,54 @@ describe('Trie functionality', () => {
 
     beforeEach(function () {
       trie = new Trie();
-    })
-
-    it('should return all children words of suggestion', () => {
+      trie.insert('app');
       trie.insert('apple');
       trie.insert('applesauce');
       trie.insert('apply');
       trie.insert('apt');
       trie.insert('cat');
+      trie.insert('x-ray');
+    })
+
+    it('should return all children words of suggestion', () => {
 
       let suggestions = trie.suggest('app');
 
-      expect(suggestions).to.deep.equal([ 'apple', 'applesauce', 'apply' ])
+      expect(suggestions).to.deep.equal([ 'app', 'apple', 'applesauce', 'apply' ])
+
+      suggestions = trie.suggest('applesb');
+
+      expect(suggestions).to.deep.equal([])
+
+      suggestions = trie.suggest('apple');
+
+      expect(suggestions).to.deep.equal([ 'apple', 'applesauce' ])
+
+      suggestions = trie.suggest('ca.');
+
+      expect(suggestions).to.deep.equal([])
+
+      suggestions = trie.suggest('x');
+
+      expect(suggestions).to.deep.equal([ 'x-ray' ])
     })
   });
+
+  describe('Populate', () => {
+    let trie;
+    beforeEach(function (done) {
+      this.timeout(4000)
+      setTimeout(done, 4000)
+      trie = new Trie()
+      trie.populate(dictionary);
+      done();
+    })
+
+    it('should have lots of words after dictionary is populated', () => {
+      trie.populate(dictionary);
+      expect(trie.wordCount).to.equal(234371);
+    })
+  })
 
   describe('Select', () => {
     let trie;
