@@ -5,6 +5,15 @@ const fs = require('fs');
 const text = "/usr/share/dict/words"
 const dictionary = fs.readFileSync(text).toString().trim().split('\n')
 
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds) {
+      break;
+    }
+  }
+}
+
 describe('Trie functionality', () => {
 
   describe('Insert', () => {
@@ -176,6 +185,7 @@ describe('Trie functionality', () => {
 
   describe('Populate', () => {
     let trie;
+
     beforeEach(function (done) {
       this.timeout(4000)
       setTimeout(done, 4000)
@@ -207,15 +217,41 @@ describe('Trie functionality', () => {
 
       expect(suggestions).to.deep.equal([ 'app', 'apple', 'applesauce', 'apply' ])
 
-      trie.select('ape');
+      sleep(10);
+
+      trie.select('app');
+      suggestions = trie.suggest('app');
       expect(suggestions).to.deep.equal([ 'app', 'apple', 'applesauce', 'apply' ])
 
+      sleep(10);
+
       trie.select('apply');
+      suggestions = trie.suggest('app');
       expect(suggestions).to.deep.equal([ 'apply', 'app', 'apple', 'applesauce' ])
 
+      sleep(10);
+
       trie.select('apple');
+      suggestions = trie.suggest('app');
       expect(suggestions).to.deep.equal([ 'apple', 'apply', 'app', 'applesauce' ])
+
+      sleep(10);
+
+      trie.select('app');
+      suggestions = trie.suggest('app');
+      expect(suggestions).to.deep.equal([ 'app', 'apple', 'apply', 'applesauce' ])
+
+      sleep(10);
+
+      trie.select('apply');
+      sleep(10);
+      trie.select('app');
+      sleep(10);
+      trie.select('apply');
+      suggestions = trie.suggest('app');
+      expect(suggestions).to.deep.equal([ 'apply', 'app', 'apple', 'applesauce' ])
     })
+
   })
 
 })

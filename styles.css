@@ -96,7 +96,12 @@ nav {
 
 .location-search {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search {
+  display: flex;
   margin-left: 25px;
 }
 
