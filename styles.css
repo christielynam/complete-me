@@ -107,11 +107,12 @@ nav {
 
 .search-input {
   height: 50px;
-  width: 300px;
+  width: 350px;
   padding-left: 10px;
   border: 2px solid #1291BB;
   border-right: 1px solid #1291BB;
   font-size: 1.2em;
+  outline: none;
 }
 
 ::placeholder {
@@ -123,15 +124,28 @@ button {
   width: 50px;
   background-color: #fff;
   border: 2px solid #1291BB;
-  border-left: 1px solid #1291BB;
+  outline: none;
 }
 
 #map-icon {
+  display: none;
   background-image: url('/Users/christielynam/turing/mod2/projects/complete-me/assets/map.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px;
+  border-left: 1px solid #1291BB;
   cursor: pointer;
+}
+
+li {
+  padding-bottom: 5px;
+  color: #C7C8C9;
+  font-size: 1.2em;
+  list-style-type: none;
+}
+
+li:hover {
+  color: #fff;
 }
 
 .current-city {
@@ -148,7 +162,7 @@ button {
 
 .weather-icon {
   width: 150px;
-  margin: 50px;
+  margin-top: 50px;
 }
 
 .current-temp {

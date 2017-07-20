@@ -1,4 +1,5 @@
 import Node from './Node.js';
+import words from './words.json';
 
 export default class Trie {
   constructor() {
@@ -14,7 +15,6 @@ export default class Trie {
     }
 
     let letters = [...word.toLowerCase()];
-
     let currentNode = this.root;
 
     letters.forEach(letter => {
@@ -67,16 +67,9 @@ export default class Trie {
     suggestions.sort((a, b) => {
       return b.freuqency - a.frequency || b.lastTouched - a.lastTouched;
     })
-    // console.log(suggestions);
     return suggestions.map(obj => {
       return obj.value;
     });
-  }
-
-  populate(dictionary) {
-    dictionary.forEach(word => {
-      this.insert(word);
-    })
   }
 
   select(word) {
@@ -90,5 +83,10 @@ export default class Trie {
     currentNode.lastTouched = Date.now();
   }
 
+  populate() {
+    words.forEach(word => {
+      this.insert(word);
+    })
+  }
 
 }

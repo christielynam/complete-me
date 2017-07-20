@@ -196,7 +196,7 @@ describe('Trie functionality', () => {
 
     it('should have lots of words after dictionary is populated', () => {
       trie.populate(dictionary);
-      expect(trie.wordCount).to.equal(234371);
+      expect(trie.wordCount).to.equal(274916);
     })
   })
 
