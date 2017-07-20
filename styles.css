@@ -13,6 +13,7 @@ body {
 
 header {
   display: flex;
+  justify-content: space-around;
   border-bottom: 2px solid #363636;
 }
 
@@ -89,7 +90,7 @@ nav {
 
 .search {
   display: flex;
-  margin-left: 25px;
+  margin: 0 25px;
 }
 
 .search-input {

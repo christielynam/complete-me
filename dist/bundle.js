@@ -275027,7 +275027,6 @@ function filterList() {
   let string = $('.search-input').val();
   $('li').remove();
   let suggestions = searchTrie.suggest(string);
-
   for (let i = 0; i < 10 && suggestions.length; i++) {
     if (suggestions[i] !== undefined) {
       $('.suggestion-list').append(`<li>${suggestions[i]}</li>`)
