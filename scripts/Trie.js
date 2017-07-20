@@ -87,5 +87,5 @@ export default class Trie {
       this.insert(word);
     })
   }
-
+  
 }

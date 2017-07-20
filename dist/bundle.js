@@ -275095,7 +275095,6 @@ class Trie {
     for (let i = 0; i < inputArray.length; i++) {
       currentNode = currentNode.children[inputArray[i]];
     }
-    //currentNode now refers to the last letter in our word
 
     const traverseTheTrie = (input, currentNode) => {
       const keys = Object.keys(currentNode.children);
@@ -275141,7 +275140,7 @@ class Trie {
       this.insert(word);
     })
   }
-
+  
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Trie;
 
