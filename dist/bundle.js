@@ -275087,22 +275087,22 @@ class Trie {
     return this.wordCount;
   }
 
-  suggest(word) {
-    let wordsArray = [...word];
+  suggest(input) {
+    let inputArray = [...input];
     let currentNode = this.root;
     let suggestions = [];
 
-    for (let i = 0; i < wordsArray.length; i++) {
-      currentNode = currentNode.children[wordsArray[i]];
+    for (let i = 0; i < inputArray.length; i++) {
+      currentNode = currentNode.children[inputArray[i]];
     }
     //currentNode now refers to the last letter in our word
 
-    const traverseTheTrie = (word, currentNode) => {
+    const traverseTheTrie = (input, currentNode) => {
       const keys = Object.keys(currentNode.children);
 
       for (let k = 0; k < keys.length; k++) {
         const child = currentNode.children[keys[k]];
-        const newString = word + child.letter;
+        const newString = input + child.letter;
 
         if (child.isWord) {
           suggestions.push({value: newString, frequency: child.frequency, lastTouched: child.lastTouched});
@@ -275112,13 +275112,13 @@ class Trie {
     }
 
     if (currentNode && currentNode.isWord) {
-      suggestions.push({value: word, frequency: currentNode.frequency, lastTouched: currentNode.lastTouched});
+      suggestions.push({value: input, frequency: currentNode.frequency, lastTouched: currentNode.lastTouched});
     }
     if (currentNode) {
-      traverseTheTrie(word, currentNode);
+      traverseTheTrie(input, currentNode);
     }
     suggestions.sort((a, b) => {
-      return b.freuqency - a.frequency || b.lastTouched - a.lastTouched;
+      return b.frequency - a.frequency || b.lastTouched - a.lastTouched;
     })
     return suggestions.map(obj => {
       return obj.value;
