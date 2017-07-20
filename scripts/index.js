@@ -1,12 +1,13 @@
 import Trie from './Trie.js';
 import words from './words.json';
 
-let searchTrie = new Trie();
+const searchTrie = new Trie();
 
 $(document).ready(function() {
   populateWords();
   $('.search-input').focus();
 });
+
 $('.search-input').on('input', function() {
   if ($('.search-input').val() === '') {
     $('.suggestion-list').empty();
@@ -29,7 +30,6 @@ function filterList() {
   let string = $('.search-input').val();
   $('li').remove();
   let suggestions = searchTrie.suggest(string);
-  console.log(suggestions);
 
   for (let i = 0; i < 10 && suggestions.length; i++) {
     if (suggestions[i] !== undefined) {
@@ -43,4 +43,5 @@ function selectWord(e) {
   searchTrie.select(selected);
   filterList();
   $('.search-input').val(selected);
+  $('.suggestion-list').empty();
 }

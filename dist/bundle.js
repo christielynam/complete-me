@@ -274998,12 +274998,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let searchTrie = new __WEBPACK_IMPORTED_MODULE_0__Trie_js__["a" /* default */]();
+const searchTrie = new __WEBPACK_IMPORTED_MODULE_0__Trie_js__["a" /* default */]();
 
 $(document).ready(function() {
   populateWords();
   $('.search-input').focus();
 });
+
 $('.search-input').on('input', function() {
   if ($('.search-input').val() === '') {
     $('.suggestion-list').empty();
@@ -275026,7 +275027,6 @@ function filterList() {
   let string = $('.search-input').val();
   $('li').remove();
   let suggestions = searchTrie.suggest(string);
-  console.log(suggestions);
 
   for (let i = 0; i < 10 && suggestions.length; i++) {
     if (suggestions[i] !== undefined) {
@@ -275040,6 +275040,7 @@ function selectWord(e) {
   searchTrie.select(selected);
   filterList();
   $('.search-input').val(selected);
+  $('.suggestion-list').empty();
 }
 
 
