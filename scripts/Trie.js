@@ -35,7 +35,7 @@ export default class Trie {
   }
 
   suggest(input) {
-    let inputArray = [...input];
+    let inputArray = [...input.toLowerCase()];
     let currentNode = this.root;
     let suggestions = [];
 
@@ -87,5 +87,5 @@ export default class Trie {
       this.insert(word);
     })
   }
-  
+
 }

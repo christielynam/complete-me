@@ -275035,7 +275035,7 @@ function filterList() {
 }
 
 function selectWord(e) {
-  let selected = e.target.innerHTML;
+  let selected = e.target.innerHTML.toLowerCase();
   searchTrie.select(selected);
   filterList();
   $('.search-input').val(selected);
@@ -275088,7 +275088,7 @@ class Trie {
   }
 
   suggest(input) {
-    let inputArray = [...input];
+    let inputArray = [...input.toLowerCase()];
     let currentNode = this.root;
     let suggestions = [];
 
@@ -275140,7 +275140,7 @@ class Trie {
       this.insert(word);
     })
   }
-  
+
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Trie;
 

@@ -38,7 +38,7 @@ function filterList() {
 }
 
 function selectWord(e) {
-  let selected = e.target.innerHTML;
+  let selected = e.target.innerHTML.toLowerCase();
   searchTrie.select(selected);
   filterList();
   $('.search-input').val(selected);
