@@ -27,52 +27,39 @@ header {
   font-size: 3em;
 }
 
-#f {
-  color: red;
-}
-#r {
-  color: orange;
-}
-#i {
-  color: yellow;
-}
-#e {
-  color: green;
-}
-#n {
-  color: blue;
-}
-#d {
-  color: indigo;
-}
-#l {
-  color: violet;
-}
-#y {
-  color: red;
-}
-
-#f2 {
-  color: violet;
-}
-#o {
-  color: indigo;
-}
-#r2 {
-  color: blue;
-}
-#e2 {
-  color: green;
-}
-#c {
-  color: yellow;
-}
-#a {
-  color: orange;
-}
+#f,
+#y,
 #s {
   color: red;
 }
+
+#r,
+#a {
+  color: orange;
+}
+
+#i,
+#c {
+  color: yellow;
+}
+
+#e,
+#e2 {
+  color: green;
+}
+
+#n,
+#r2 {
+  color: blue;
+}
+
+#d,
+#o {
+  color: indigo;
+}
+
+#l,
+#f2,
 #t {
   color: violet;
 }
@@ -122,8 +109,8 @@ nav {
 button {
   height: 50px;
   width: 50px;
-  background-color: #fff;
   border: 2px solid #1291BB;
+  background-color: #fff;
   outline: none;
 }
 
@@ -230,13 +217,13 @@ li:hover {
 .full-forecast-btn {
   height: 50px;
   width: 300px;
+  align-self: center;
+  border: none;
   background-color: #1291BB;
   color: #fff;
-  border: none;
+  cursor: pointer;
   font-family: inherit;
   font-size: 1.2em;
-  align-self: center;
-  cursor: pointer;
 }
 
 .quote {
